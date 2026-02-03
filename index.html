@@ -3,46 +3,1563 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Euphoria - euphoria.pl.ua</title>
+    <title>Euphoria — студія краси</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        * {
+        :root {
+            --bg-ivory: #f8f3ee;
+            --bg-soft: #f5ebe4;
+            --bg-card: #ffffff;
+            --accent: #c86f5a; /* dusty terracotta */
+            --accent-soft: rgba(200, 111, 90, 0.08);
+            --text-main: #3f3430;
+            --text-muted: #7c6e67;
+            --border-soft: rgba(127, 97, 83, 0.16);
+            --shadow-soft: 0 22px 40px rgba(30, 19, 12, 0.12);
+            --radius-lg: 24px;
+            --radius-md: 18px;
+            --radius-pill: 999px;
+            --transition-soft: all 0.3s ease;
+            --container-max: 1200px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
-        
+
+        html,
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at top left, #fdf7f0 0, #f4e6da 40%, #f1e3dc 100%);
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .page-shell {
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            backdrop-filter: blur(12px);
+            background: linear-gradient(to bottom, rgba(248, 243, 238, 0.95), rgba(248, 243, 238, 0.78));
+            border-bottom: 1px solid rgba(191, 151, 130, 0.15);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 15%, #fdf7f2 0, #f4ddd1 35%, #c86f5a 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            box-shadow: 0 12px 24px rgba(136, 83, 63, 0.42);
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            letter-spacing: 0.06em;
         }
-        
-        .container {
-            text-align: center;
-            padding: 2rem;
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
         }
-        
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+
+        .brand-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
         }
-        
-        p {
-            font-size: 1.2rem;
+
+        .brand-sub {
+            font-size: 11px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .nav {
+            display: none;
+            gap: 24px;
+            font-size: 13px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .nav a {
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.25s ease;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-cta {
+            display: none;
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            display: flex;
+            align-items: center;
+            min-height: calc(100vh - 68px);
+            padding: 28px 0 60px;
+            background: radial-gradient(circle at top, #fdf7f2 0, #f3e4d7 40%, #f0e2d9 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 26px;
+            align-items: stretch;
+            border-radius: 32px;
+            background: #fff;
+            box-shadow: 0 28px 60px rgba(92, 66, 50, 0.2);
+            padding: 18px 18px 18px;
+        }
+
+        .hero-media-shell {
+            position: relative;
+            border-radius: 26px;
+            overflow: hidden;
+            background: #ddd;
+            min-height: 240px;
+            box-shadow: 0 22px 40px rgba(60, 41, 30, 0.22);
+        }
+
+        .hero-media-fallback {
+            position: absolute;
+            inset: 0;
+            background-image: url('images/photo_1_2026-02-03_11-45-29.jpg');
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.02);
+            filter: saturate(1.03) contrast(1.03);
+        }
+
+        .hero-media-overlay {
+            display: none;
+        }
+
+        .hero-pretitle {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: var(--radius-pill);
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid var(--border-soft);
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .hero-pre-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            line-height: 1.15;
+            letter-spacing: 0.02em;
+            margin-bottom: 12px;
+        }
+
+        .hero-title span {
+            background-image: linear-gradient(90deg, #c86f5a, #b25848);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            max-width: 420px;
+        }
+
+        .hero-subtitle strong {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .hero-actions {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: var(--radius-pill);
+            border: none;
+            background: linear-gradient(135deg, #c86f5a, #af5a49);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 18px 32px rgba(136, 83, 63, 0.33);
+            transition: var(--transition-soft);
+            white-space: nowrap;
+        }
+
+        .btn-primary span.icon {
+            font-size: 16px;
+            transform: translateX(0);
+            transition: transform 0.25s ease;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 22px 40px rgba(136, 83, 63, 0.38);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:hover span.icon {
+            transform: translateX(3px);
+        }
+
+        .hero-note {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .hero-note strong {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .hero-right {
+            position: relative;
+        }
+
+        .hero-floating-card {
+            position: absolute;
+            right: 12px;
+            bottom: 14px;
+            padding: 12px 14px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 18px 32px rgba(35, 22, 18, 0.2);
+            max-width: 210px;
+        }
+
+        .hero-floating-title {
+            font-size: 11px;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .hero-floating-text {
+            font-size: 12px;
+            line-height: 1.5;
+            color: var(--text-main);
+        }
+
+        .hero-floating-pill {
+            margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            font-size: 11px;
+            color: #925242;
+        }
+
+        .hero-floating-pill-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #42b883;
+        }
+
+        .hero-icons-row {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .hero-icon-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: #faf3ec;
+            border: 1px solid rgba(182, 142, 123, 0.5);
+            font-size: 12px;
+            color: var(--text-main);
+        }
+
+        .hero-icon-pill span {
+            font-size: 14px;
+        }
+
+        /* Sections */
+        main {
+            flex: 1;
+        }
+
+        section {
+            padding: 56px 0;
+        }
+
+        .section-heading {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 28px;
+        }
+
+        .section-eyebrow {
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            letter-spacing: 0.03em;
+        }
+
+        .section-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            max-width: 460px;
+        }
+
+        /* About */
+        .about {
+            background: linear-gradient(to bottom, #f8f3ee, #f6eee7);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 28px;
+        }
+
+        .about-text {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+
+        .about-text p + p {
+            margin-top: 10px;
+        }
+
+        .about-icons {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .about-icon-card {
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid var(--border-soft);
+            padding: 12px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+        }
+
+        .about-icon-badge {
+            width: 26px;
+            height: 26px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .about-icon-title {
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .about-icon-text {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        /* Services */
+        .services {
+            background: #f3ebe4;
+        }
+
+        .services-bento {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .service-card {
+            position: relative;
+            border-radius: 24px;
+            background: #fff;
+            overflow: hidden;
+            box-shadow: 0 20px 45px rgba(52, 34, 25, 0.16);
+            border: 1px solid rgba(163, 128, 109, 0.18);
+            transform: translateY(0);
+            transition: var(--transition-soft);
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top, rgba(251, 238, 228, 0.9) 0, transparent 55%);
             opacity: 0.9;
+            pointer-events: none;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 28px 60px rgba(52, 34, 25, 0.2);
+        }
+
+        .service-media {
+            position: relative;
+            height: 170px;
+            overflow: hidden;
+        }
+
+        .service-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.02);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover .service-media img {
+            transform: scale(1.06);
+        }
+
+        .service-tag {
+            position: absolute;
+            left: 14px;
+            top: 14px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.92);
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .service-body {
+            position: relative;
+            padding: 16px 16px 8px;
+            z-index: 1;
+        }
+
+        .service-title-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+
+        .service-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+        }
+
+        .service-duration {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .service-text {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .service-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--accent);
+            cursor: pointer;
+            padding: 4px 0 10px;
+        }
+
+        .service-toggle-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(200, 111, 90, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            transition: var(--transition-soft);
+        }
+
+        .service-toggle.open .service-toggle-icon {
+            transform: rotate(90deg);
+        }
+
+        .service-prices {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+            border-top: 1px solid rgba(241, 224, 213, 0.8);
+        }
+
+        .service-prices-inner {
+            padding: 10px 0 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-size: 13px;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .price-name {
+            color: var(--text-main);
+        }
+
+        .price-meta {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .price-value {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        /* Gallery */
+        .gallery {
+            background: #f8f3ee;
+        }
+
+        .gallery-header-row {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .gallery-badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .gallery-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px dashed rgba(200, 111, 90, 0.45);
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .gallery-badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: #34c759;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            background: #ddd;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.02);
+            transition: transform 0.45s ease;
+        }
+
+        .gallery-item:nth-child(1),
+        .gallery-item:nth-child(4) {
+            grid-row: span 2;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .gallery-tag {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            padding: 4px 9px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.42);
+            color: #fff;
+            font-size: 10px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .gallery-note {
+            margin-top: 14px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Contacts */
+        .contacts {
+            background: #fbf5f0;
+        }
+
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .contacts-card {
+            border-radius: var(--radius-lg);
+            padding: 18px 18px 16px;
+            background: #fff;
+            box-shadow: 0 20px 36px rgba(72, 50, 39, 0.18);
+            border: 1px solid var(--border-soft);
+        }
+
+        .contacts-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .contacts-row {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-main);
+        }
+
+        .contacts-label {
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .contacts-actions {
+            margin-top: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(188, 142, 118, 0.4);
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 12px;
+            cursor: pointer;
+            transition: var(--transition-soft);
+        }
+
+        .chip:hover {
+            background: #f6e6dc;
+            border-color: var(--accent);
+        }
+
+        .chip-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+        }
+
+        .hours-block {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px dashed rgba(188, 142, 118, 0.5);
+        }
+
+        .hours-title {
+            font-size: 12px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .hours-list {
+            font-size: 13px;
+            color: var(--text-main);
+        }
+
+        .hours-list-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .map-shell {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            min-height: 260px;
+            box-shadow: 0 20px 36px rgba(72, 50, 39, 0.18);
+            border: 1px solid rgba(191, 151, 130, 0.32);
+        }
+
+        .map-shell iframe {
+            border: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Floating CTA for mobile */
+        .mobile-cta {
+            position: fixed;
+            left: 16px;
+            right: 16px;
+            bottom: 18px;
+            z-index: 50;
+            display: flex;
+            justify-content: center;
+        }
+
+        .mobile-cta-inner {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .mobile-cta-btn {
+            width: 100%;
+            border-radius: var(--radius-pill);
+        }
+
+        /* Scroll reveal (basic) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 18px 20px 28px;
+            font-size: 11px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .footer span {
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        /* Breakpoints */
+        @media (min-width: 600px) {
+            .hero-title {
+                font-size: 38px;
+            }
+
+            .hero-media-shell {
+                min-height: 320px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 32px;
+            }
+
+            .header-inner {
+                padding-inline: 32px;
+            }
+
+            .nav {
+                display: flex;
+            }
+
+            .header-cta {
+                display: block;
+            }
+
+            .hero {
+                padding: 52px 0 96px;
+            }
+
+            .hero-grid {
+                grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.1fr);
+                gap: 30px;
+                padding: 28px 28px 28px;
+            }
+
+            .hero-title {
+                font-size: 44px;
+            }
+
+            .hero-subtitle {
+                font-size: 15px;
+            }
+
+            section {
+                padding: 72px 0;
+            }
+
+            .about-grid {
+                grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+                gap: 40px;
+            }
+
+            .services-bento {
+                grid-template-columns: 2fr 1.4fr;
+                grid-auto-rows: 1fr;
+            }
+
+            .service-card--tall {
+                grid-row: span 2;
+            }
+
+            .contacts-grid {
+                grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.1fr);
+                align-items: stretch;
+            }
+
+            .map-shell {
+                min-height: auto;
+            }
+
+            .mobile-cta {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 40px;
+            }
+
+            .hero-title {
+                font-size: 50px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .services-bento {
+                grid-template-columns: 1.4fr 1.1fr;
+                gap: 20px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 12px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Euphoria</h1>
-        <p>euphoria.pl.ua</p>
-        <p style="margin-top: 2rem; font-size: 1rem; opacity: 0.7;">Сайт в розробці</p>
+<div class="page-shell">
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-inner container">
+            <a href="#hero" class="brand">
+                <div class="brand-mark">E</div>
+                <div class="brand-text">
+                    <div class="brand-title">Euphoria</div>
+                    <div class="brand-sub">nail & beauty space</div>
+                </div>
+            </a>
+
+            <nav class="nav">
+                <a href="#about">Про студію</a>
+                <a href="#services">Послуги</a>
+                <a href="#gallery">Галерея</a>
+                <a href="#contacts">Контакти</a>
+            </nav>
+
+            <button class="btn-primary header-cta" onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})">
+                Подарувати собі час
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section id="hero" class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-left reveal">
+                        <div class="hero-pretitle">
+                            <span class="hero-pre-dot"></span>
+                            Простір турботи про себе
+                        </div>
+                        <h1 class="hero-title">
+                            Відчуй справжню <span>Ейфорію</span><br>
+                            до кінчиків пальців.
+                        </h1>
+                        <p class="hero-subtitle">
+                            <strong>Soft Premium студія краси</strong>, де кожен запис — це не просто манікюр,
+                            а ритуал відпочинку, уваги до деталей та теплого сервісу.
+                        </p>
+                        <div class="hero-actions">
+                            <button class="btn-primary"
+                                    onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})">
+                                Подарувати собі час
+                                <span class="icon">↗</span>
+                            </button>
+                            <div class="hero-note">
+                                <strong>Онлайн-запис</strong> в один дотик — Instagram, Telegram чи Viber.
+                            </div>
+                        </div>
+                        <div class="hero-icons-row">
+                            <div class="hero-icon-pill">
+                                <span>🧼</span>
+                                Стерильність 100%
+                            </div>
+                            <div class="hero-icon-pill">
+                                <span>☕</span>
+                                Кава та атмосфера
+                            </div>
+                            <div class="hero-icon-pill">
+                                <span>✨</span>
+                                Преміум-матеріали
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-right reveal">
+                        <div class="hero-media-shell">
+                            <!-- TODO: Замінити на живе відео / слайдер з Google My Business -->
+                            <div class="hero-media-fallback"></div>
+                            <div class="hero-media-overlay"></div>
+                        </div>
+
+                        <div class="hero-floating-card">
+                            <div class="hero-floating-title">Відчуй сторінки Ейфорії</div>
+                            <div class="hero-floating-text">
+                                Простір краси, де твій комфорт, тиша та емоційне розвантаження
+                                такі ж важливі, як і ідеальний манікюр.
+                            </div>
+                            <div class="hero-floating-pill">
+                                <span class="hero-floating-pill-dot"></span>
+                                Сьогодні є вільні вікна для запису
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div class="section-eyebrow">Sense &amp; Vibe</div>
+                    <h2 class="section-title">Простір, де твій комфорт — наш пріоритет</h2>
+                    <p class="section-desc">
+                        Ми створили Euphoria як місце, де можна перевести подих, відкласти телефон і
+                        на годину-другу дозволити собі бути лише в моменті.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-text reveal">
+                        <p>
+                            Для нас важливо, щоб ти виходила зі студії не лише з ідеальними нігтями чи
+                            доглянутою шкірою, а й зі світлою головою та відчуттям внутрішньої рівноваги.
+                        </p>
+                        <p>
+                            Ми працюємо в форматі <strong>soft premium</strong>: м’яка комунікація,
+                            делікатний сервіс, преміальні матеріали та чесний підхід до рекомендацій.
+                        </p>
+                        <p>
+                            Ти завжди можеш сказати “сьогодні хочу мовчки” або “поговорімо про важливе”
+                            — ми підтримуємо будь-який формат твого відпочинку.
+                        </p>
+                    </div>
+
+                    <div class="about-icons reveal">
+                        <div class="about-icon-card">
+                            <div class="about-icon-badge">🧼</div>
+                            <div class="about-icon-title">Стерильність 100%</div>
+                            <div class="about-icon-text">
+                                Медична обробка інструментів, одноразові витратні матеріали — без компромісів.
+                            </div>
+                        </div>
+                        <div class="about-icon-card">
+                            <div class="about-icon-badge">✨</div>
+                            <div class="about-icon-title">Преміум-матеріали</div>
+                            <div class="about-icon-text">
+                                Професійні бренди для стійкого покриття та делікатного догляду за шкірою.
+                            </div>
+                        </div>
+                        <div class="about-icon-card">
+                            <div class="about-icon-badge">☕</div>
+                            <div class="about-icon-title">Кава та атмосфера</div>
+                            <div class="about-icon-text">
+                                Тиха музика, світлі інтер’єри, запашна кава — щоб кожен візит був маленькою втечею.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div class="section-eyebrow">Bento Menu</div>
+                    <h2 class="section-title">Послуги, зібрані під твій настрій</h2>
+                    <p class="section-desc">
+                        Обирай категорію, відкривай деталізоване меню з цінами й
+                        плануй свій наступний beauty-ритуал.
+                    </p>
+                </div>
+
+                <div class="services-bento">
+                    <!-- Нігтьовий сервіс -->
+                    <article class="service-card service-card--tall reveal" data-service>
+                        <div class="service-media">
+                            <img src="images/photo_2_2026-02-03_11-45-29.jpg"
+                                 alt="Нігтьовий сервіс — манікюр у студії Euphoria">
+                            <div class="service-tag">Нігтьовий сервіс</div>
+                        </div>
+                        <div class="service-body">
+                            <div class="service-title-row">
+                                <h3 class="service-title">Манікюр &amp; педикюр</h3>
+                                <div class="service-duration">60–120 хв</div>
+                            </div>
+                            <p class="service-text">
+                                Акуратна робота з шкірою, ідеальне вирівнювання, трендові відтінки та мінімалістичний дизайн
+                                — без поспіху та "по-швидкому".
+                            </p>
+                            <button type="button" class="service-toggle" data-toggle>
+                                <span class="service-toggle-icon">+</span>
+                                Показати меню з цінами
+                            </button>
+                            <div class="service-prices" data-prices>
+                                <div class="service-prices-inner">
+                                    <div class="price-row">
+                                        <div>
+                                            <div class="price-name">Манікюр + покриття гель-лаком</div>
+                                            <div class="price-meta">з вирівнюванням та базовим доглядом</div>
+                                        </div>
+                                        <div class="price-value">від 650 ₴</div>
+                                    </div>
+                                    <div class="price-row">
+                                        <div>
+                                            <div class="price-name">Педикюр комплекс</div>
+                                            <div class="price-meta">повний догляд + покриття</div>
+                                        </div>
+                                        <div class="price-value">від 800 ₴</div>
+                                    </div>
+                                    <div class="price-row">
+                                        <div>
+                                            <div class="price-name">Корекція / зняття покриття</div>
+                                            <div class="price-meta">обережно, без травмування нігтів</div>
+                                        </div>
+                                        <div class="price-value">від 250 ₴</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Брови / Вії -->
+                    <article class="service-card reveal" data-service>
+                        <div class="service-media">
+                            <img src="images/photo_3_2026-02-03_11-45-29.jpg"
+                                 alt="Оформлення брів та вій у студії Euphoria">
+                            <div class="service-tag">Брови &amp; вії</div>
+                        </div>
+                        <div class="service-body">
+                            <div class="service-title-row">
+                                <h3 class="service-title">Акцент на погляді</h3>
+                                <div class="service-duration">40–90 хв</div>
+                            </div>
+                            <p class="service-text">
+                                Індивідуальний підбір форми та відтінку, делікатні ламінування та фарбування —
+                                для природного, але виразного результату.
+                            </p>
+                            <button type="button" class="service-toggle" data-toggle>
+                                <span class="service-toggle-icon">+</span>
+                                Показати меню з цінами
+                            </button>
+                            <div class="service-prices" data-prices>
+                                <div class="service-prices-inner">
+                                    <div class="price-row">
+                                        <div>
+                                            <div class="price-name">Оформлення брів</div>
+                                            <div class="price-meta">корекція + фарбування</div>
+                                        </div>
+                                        <div class="price-value">від 450 ₴</div>
+                                    </div>
+                                    <div class="price-row">
+                                        <div>
+                                            <div class="price-name">Ламінування вій</div>
+                                            <div class="price-meta">з ботоксом та фарбуванням</div>
+                                        </div>
+                                        <div class="price-value">від 700 ₴</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Косметологія -->
+                    <article class="service-card reveal" data-service>
+                        <div class="service-media">
+                            <img src="images/photo_4_2026-02-03_11-45-29.jpg"
+                                 alt="Косметологічні процедури у студії Euphoria">
+                            <div class="service-tag">Косметологія</div>
+                        </div>
+                        <div class="service-body">
+                            <div class="service-title-row">
+                                <h3 class="service-title">Догляд за шкірою</h3>
+                                <div class="service-duration">60–90 хв</div>
+                            </div>
+                            <p class="service-text">
+                                Делікатні доглядові протоколи для сяйва, пружності та здорового тону шкіри
+                                без агресивних втручань.
+                            </p>
+                            <button type="button" class="service-toggle" data-toggle>
+                                <span class="service-toggle-icon">+</span>
+                                Показати меню з цінами
+                            </button>
+                            <div class="service-prices" data-prices>
+                                <div class="service-prices-inner">
+                                    <div class="price-row">
+                                        <div>
+                                            <div class="price-name">Базовий догляд</div>
+                                            <div class="price-meta">очищення, маска, масаж, завершальний догляд</div>
+                                        </div>
+                                        <div class="price-value">від 900 ₴</div>
+                                    </div>
+                                    <div class="price-row">
+                                        <div>
+                                            <div class="price-name">Комплексні програми</div>
+                                            <div class="price-meta">індивідуальні протоколи під запит шкіри</div>
+                                        </div>
+                                        <div class="price-value">індивідуально</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY -->
+        <section id="gallery" class="gallery">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div class="section-eyebrow">Live Content</div>
+                    <h2 class="section-title">Галерея живих моментів</h2>
+                    <p class="section-desc">
+                        Сюди автоматично підтягуються свіжі фото з Google — інтер’єр, деталі та роботи майстрів,
+                        щоб ти бачила реальну атмосферу студії.
+                    </p>
+                </div>
+
+                <div class="gallery-header-row reveal">
+                    <div class="gallery-badge-row">
+                        <div class="gallery-badge">
+                            <span class="gallery-badge-dot"></span>
+                            Оновлення раз на 24 години
+                        </div>
+                        <div class="gallery-badge">
+                            API Google My Business (MediaItems)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Fallback-фото (будуть замінені живими через API) -->
+                    <figure class="gallery-item reveal">
+                        <img src="images/photo_5_2026-02-03_11-45-29.jpg"
+                             alt="Інтер’єр студії краси Euphoria">
+                        <figcaption class="gallery-tag">Interior</figcaption>
+                    </figure>
+                    <figure class="gallery-item reveal">
+                        <img src="images/photo_6_2026-02-03_11-45-29.jpg"
+                             alt="Робоче місце майстра манікюру">
+                        <figcaption class="gallery-tag">Details</figcaption>
+                    </figure>
+                    <figure class="gallery-item reveal">
+                        <img src="images/photo_7_2026-02-03_11-45-29.jpg"
+                             alt="Щаслива клієнтка після процедури">
+                        <figcaption class="gallery-tag">Clients</figcaption>
+                    </figure>
+                    <figure class="gallery-item reveal">
+                        <img src="images/photo_8_2026-02-03_11-45-29.jpg"
+                             alt="Деталі інтер’єру та декору">
+                        <figcaption class="gallery-tag">Atmosphere</figcaption>
+                    </figure>
+                </div>
+
+                <p class="gallery-note reveal">
+                    *Інтеграція з Google My Business налаштовується через JavaScript і API-ключ.
+                    Фото кешуються в браузері / на бекенді до 24 годин, а якщо сервіс недоступний —
+                    відображаються ці затверджені зображення студії.
+                </p>
+            </div>
+        </section>
+
+        <!-- CONTACTS -->
+        <section id="contacts" class="contacts">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div class="section-eyebrow">Contacts &amp; Map</div>
+                    <h2 class="section-title">Подарувати собі час легко</h2>
+                    <p class="section-desc">
+                        Обирай зручний спосіб зв’язку — напиши нам в Instagram, Telegram чи Viber,
+                        і ми допоможемо підібрати ідеальний час та послугу.
+                    </p>
+                </div>
+
+                <div class="contacts-grid">
+                    <div class="contacts-card reveal">
+                        <h3 class="contacts-title">Давай домовимось про зустріч</h3>
+                        <div class="contacts-row">
+                            <div>
+                                <div class="contacts-label">Адреса</div>
+                                <div>м. Полтава, студія краси Euphoria</div>
+                            </div>
+                            <div>
+                                <div class="contacts-label">Телефон</div>
+                                <div><a href="tel:+380507412041">+38 (050) 741-20-41</a></div>
+                            </div>
+                        </div>
+
+                        <div class="contacts-actions">
+                            <a href="https://www.instagram.com/_euphoria_beauty_/" target="_blank" rel="noopener" class="chip" aria-label="Написати в Instagram">
+                                <span class="chip-icon">◎</span>
+                                Instagram
+                            </a>
+                            <a href="https://t.me/+380507412041" target="_blank" rel="noopener" class="chip" aria-label="Написати в Telegram">
+                                <span class="chip-icon">✉</span>
+                                Telegram
+                            </a>
+                            <a href="viber://chat?number=%2B380507412041" class="chip" aria-label="Написати у Viber">
+                                <span class="chip-icon">᛫</span>
+                                Viber
+                            </a>
+                        </div>
+
+                        <div class="hours-block">
+                            <div class="hours-title">Графік роботи</div>
+                            <div class="hours-list">
+                                <div class="hours-list-row">
+                                    <span>Пн–Пт</span>
+                                    <span>10:00 — 20:00</span>
+                                </div>
+                                <div class="hours-list-row">
+                                    <span>Сб</span>
+                                    <span>10:00 — 18:00</span>
+                                </div>
+                                <div class="hours-list-row">
+                                    <span>Нд</span>
+                                    <span>за попереднім записом</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="map-shell reveal" aria-label="Карта проїзду до студії Euphoria">
+                        <!-- TODO: Замінити src на живий Google Maps Embed з конкретною адресою студії -->
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2539.70753301642!2d34.545!3d49.588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z0J_QvtC70YzQutCw0Y8g0JrRg9C30YvQutCw!5e0!3m2!1suk!2sua!4v1700000000000"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <span>Euphoria</span> — простір, де про тебе дбають так само, як ти дбаєш про інших.
+    </footer>
+
+    <!-- MOBILE FLOATING CTA -->
+    <div class="mobile-cta">
+        <div class="mobile-cta-inner">
+            <button class="btn-primary mobile-cta-btn"
+                    onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})">
+                Подарувати собі час
+            </button>
+        </div>
     </div>
+</div>
+
+<!-- JS: анімації, аккордеони, підготовка під GMB API -->
+<script>
+    // Просте розкриття цін (акордеон)
+    document.querySelectorAll('[data-service]').forEach(function (card) {
+        var toggle = card.querySelector('[data-toggle]');
+        var prices = card.querySelector('[data-prices]');
+        if (!toggle || !prices) return;
+
+        toggle.addEventListener('click', function () {
+            var isOpen = toggle.classList.contains('open');
+            var allCards = document.querySelectorAll('[data-service]');
+
+            // Закриваємо всі
+            allCards.forEach(function (c) {
+                var t = c.querySelector('[data-toggle]');
+                var p = c.querySelector('[data-prices]');
+                if (!t || !p) return;
+                t.classList.remove('open');
+                p.style.maxHeight = 0;
+            });
+
+            // Відкриваємо поточну, якщо була закрита
+            if (!isOpen) {
+                toggle.classList.add('open');
+                prices.style.maxHeight = prices.scrollHeight + 'px';
+            }
+        });
+    });
+
+    // М’яка поява елементів при скролі
+    var revealEls = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {threshold: 0.2});
+
+    revealEls.forEach(function (el) {
+        observer.observe(el);
+    });
+
+    // ===== Google My Business (Google Business Profile) Live Gallery =====
+    (function setupGmbGallery() {
+        var GMB_CACHE_KEY = 'euphoria_gmb_gallery_cache_v1';
+        var GMB_CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 години
+        // Бекенд-ендпоінт, який повинен повертати масив фото з профілю за адресою
+        // https://share.google/UXYlYC3CyzJgRinBz
+        //
+        // Формат очікуваної відповіді:
+        // [ { url: 'https://...', alt: '...', tag: 'Interior' }, ... ]
+        var GMB_PROXY_ENDPOINT = '/api/gmb-media';
+
+        var galleryGrid = document.getElementById('galleryGrid');
+        if (!galleryGrid) return;
+
+        function renderGallery(items) {
+            if (!Array.isArray(items) || !items.length) return;
+
+            galleryGrid.innerHTML = '';
+
+            items.forEach(function (item, index) {
+                var figure = document.createElement('figure');
+                figure.className = 'gallery-item reveal visible'; // одразу видимі, без анімації скролу
+
+                var img = document.createElement('img');
+                img.src = item.url;
+                img.loading = index > 1 ? 'lazy' : 'eager';
+                img.alt = item.alt || 'Euphoria — студія краси, фото з Google профілю';
+
+                var caption = document.createElement('figcaption');
+                caption.className = 'gallery-tag';
+                caption.textContent = item.tag || 'Live';
+
+                figure.appendChild(img);
+                figure.appendChild(caption);
+                galleryGrid.appendChild(figure);
+            });
+        }
+
+        function getCached() {
+            try {
+                var raw = localStorage.getItem(GMB_CACHE_KEY);
+                if (!raw) return null;
+                var parsed = JSON.parse(raw);
+                if (!parsed || !parsed.timestamp || !Array.isArray(parsed.items)) return null;
+                if (Date.now() - parsed.timestamp > GMB_CACHE_TTL_MS) return null;
+                return parsed.items;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        function setCached(items) {
+            try {
+                localStorage.setItem(
+                    GMB_CACHE_KEY,
+                    JSON.stringify({ timestamp: Date.now(), items: items })
+                );
+            } catch (e) {
+                // localStorage може бути недоступним (режим приватності тощо)
+            }
+        }
+
+        function fetchLiveGallery() {
+            // Якщо бекенд ще не налаштований — не ламаємо сайт
+            if (!GMB_PROXY_ENDPOINT) return;
+
+            fetch(GMB_PROXY_ENDPOINT, { method: 'GET' })
+                .then(function (res) {
+                    if (!res.ok) throw new Error('GMB proxy error');
+                    return res.json();
+                })
+                .then(function (data) {
+                    if (!Array.isArray(data) || !data.length) return;
+                    renderGallery(data);
+                    setCached(data);
+                })
+                .catch(function () {
+                    // Якщо щось пішло не так — просто залишаємо дефолтні фото з розмітки
+                });
+        }
+
+        // 1. Пробуємо взяти закешовані фото (24 години)
+        var cached = getCached();
+        if (cached && cached.length) {
+            renderGallery(cached);
+        } else {
+            // 2. Якщо кешу немає / протермінований — тягнемо нові фото
+            fetchLiveGallery();
+        }
+    })();
+</script>
 </body>
 </html>
