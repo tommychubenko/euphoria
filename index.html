@@ -897,91 +897,6 @@
             color: var(--accent);
         }
 
-        /* Gallery */
-        .gallery {
-            background: #f8f3ee;
-        }
-
-        .gallery-header-row {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            margin-bottom: 18px;
-        }
-
-        .gallery-badge-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .gallery-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px dashed rgba(106, 78, 145, 0.35);
-            font-size: 11px;
-            color: var(--text-muted);
-        }
-
-        .gallery-badge-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 999px;
-            background: #34c759;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 10px;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 18px;
-            background: #ddd;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: scale(1.02);
-            transition: transform 0.45s ease;
-        }
-
-        .gallery-item:nth-child(1),
-        .gallery-item:nth-child(4) {
-            grid-row: span 2;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.06);
-        }
-
-        .gallery-tag {
-            position: absolute;
-            left: 10px;
-            bottom: 10px;
-            padding: 4px 9px;
-            border-radius: 999px;
-            background: rgba(0, 0, 0, 0.42);
-            color: #fff;
-            font-size: 10px;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-        }
-
-        .gallery-note {
-            margin-top: 14px;
-            font-size: 12px;
-            color: var(--text-muted);
-        }
 
         /* Contacts */
         .contacts {
@@ -1297,9 +1212,6 @@
                 min-height: 320px;
             }
 
-            .gallery-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
         }
 
         @media (min-width: 768px) {
@@ -1385,10 +1297,6 @@
                 align-items: stretch;
             }
 
-            .gallery-grid {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-                gap: 12px;
-            }
         }
     </style>
 </head>
@@ -1408,7 +1316,6 @@
             <nav class="nav">
                 <a href="#about">Про студію</a>
                 <a href="#services">Послуги</a>
-                <a href="#gallery">Галерея</a>
                 <a href="#contacts">Контакти</a>
             </nav>
 
@@ -1424,7 +1331,6 @@
     <nav class="mobile-nav" id="mobileNav">
         <a href="#about" onclick="closeMobileMenu()">Про студію</a>
         <a href="#services" onclick="closeMobileMenu()">Послуги</a>
-        <a href="#gallery" onclick="closeMobileMenu()">Галерея</a>
         <a href="#contacts" onclick="closeMobileMenu()">Контакти</a>
     </nav>
 
@@ -1568,7 +1474,7 @@
 
                 <div class="lounge-grid reveal">
                     <figure class="lounge-item">
-                        <img src="images/photo_1_2026-02-03_11-45-29.jpg" alt="Лаундж-простір студії Euphoria — кава та затишок">
+                        <img src="images/photo_1_2026-02-03_11-45-29.jpg" alt="Лаундж-простір студії Euphoria — кава та затишок" loading="eager" decoding="async">
                         <figcaption class="lounge-caption">
                             <span class="lounge-caption-icon">☕</span>
                             <span class="lounge-caption-text">Смачна кава та чай</span>
@@ -1576,7 +1482,7 @@
                     </figure>
 
                     <figure class="lounge-item">
-                        <img src="images/photo_6_2026-02-03_11-45-29.jpg" alt="Інтер'єр лаундж-зони з кавою та атмосферою">
+                        <img src="images/photo_6_2026-02-03_11-45-29.jpg" alt="Інтер'єр лаундж-зони з кавою та атмосферою" loading="lazy" decoding="async">
                         <figcaption class="lounge-caption">
                             <span class="lounge-caption-icon">✨</span>
                             <span class="lounge-caption-text">Лаундж-атмосфера</span>
@@ -1584,7 +1490,7 @@
                     </figure>
 
                     <figure class="lounge-item">
-                        <img src="images/photo_7_2026-02-03_11-45-29.jpg" alt="Затишний інтер'єр студії Euphoria">
+                        <img src="images/photo_7_2026-02-03_11-45-29.jpg" alt="Затишний інтер'єр студії Euphoria" loading="lazy" decoding="async">
                         <figcaption class="lounge-caption">
                             <span class="lounge-caption-icon">🕯️</span>
                             <span class="lounge-caption-text">Приємні аромати</span>
@@ -1592,7 +1498,7 @@
                     </figure>
 
                     <figure class="lounge-item">
-                        <img src="images/photo_8_2026-02-03_11-45-29.jpg" alt="Деталі інтер'єру лаундж-зони">
+                        <img src="images/photo_8_2026-02-03_11-45-29.jpg" alt="Деталі інтер'єру лаундж-зони" loading="lazy" decoding="async">
                         <figcaption class="lounge-caption">
                             <span class="lounge-caption-icon">🎵</span>
                             <span class="lounge-caption-text">Тиха музика</span>
@@ -1619,7 +1525,7 @@
                     <article class="service-card reveal" data-service>
                         <div class="service-media">
                             <img src="images/photo_2_2026-02-03_11-45-29.jpg"
-                                 alt="Лазерна епіляція у студії Euphoria">
+                                 alt="Лазерна епіляція у студії Euphoria" loading="eager" decoding="async">
                             <div class="service-tag">Лазерна епіляція</div>
                         </div>
                         <div class="service-body">
@@ -1676,7 +1582,7 @@
                     <article class="service-card reveal" data-service>
                         <div class="service-media">
                             <img src="images/photo_3_2026-02-03_11-45-29.jpg"
-                                 alt="Шугаринг у студії Euphoria">
+                                 alt="Шугаринг у студії Euphoria" loading="lazy" decoding="async">
                             <div class="service-tag">Шугаринг</div>
                         </div>
                         <div class="service-body">
@@ -1727,7 +1633,7 @@
                     <article class="service-card reveal" data-service>
                         <div class="service-media">
                             <img src="images/photo_4_2026-02-03_11-45-29.jpg"
-                                 alt="Косметологічні процедури у студії Euphoria">
+                                 alt="Косметологічні процедури у студії Euphoria" loading="lazy" decoding="async">
                             <div class="service-tag">Косметологія</div>
                         </div>
                         <div class="service-body">
@@ -1786,7 +1692,7 @@
                     <article class="service-card reveal" data-service>
                         <div class="service-media">
                             <img src="images/photo_5_2026-02-03_11-45-29.jpg"
-                                 alt="Перманентний макіяж у студії Euphoria">
+                                 alt="Перманентний макіяж у студії Euphoria" loading="lazy" decoding="async">
                             <div class="service-tag">Перманентний макіяж</div>
                         </div>
                         <div class="service-body">
@@ -1838,61 +1744,6 @@
             </div>
         </section>
 
-        <!-- GALLERY -->
-        <section id="gallery" class="gallery">
-            <div class="container">
-                <div class="section-heading reveal">
-                    <div class="section-eyebrow">Live Content</div>
-                    <h2 class="section-title">Галерея живих моментів</h2>
-                    <p class="section-desc">
-                        Сюди автоматично підтягуються свіжі фото з Google — інтер’єр, деталі та роботи майстрів,
-                        щоб ти бачила реальну атмосферу студії.
-                    </p>
-                </div>
-
-                <div class="gallery-header-row reveal">
-                    <div class="gallery-badge-row">
-                        <div class="gallery-badge">
-                            <span class="gallery-badge-dot"></span>
-                            Оновлення раз на 24 години
-                        </div>
-                        <div class="gallery-badge">
-                            API Google My Business (MediaItems)
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-grid" id="galleryGrid">
-                    <!-- Fallback-фото (будуть замінені живими через API) -->
-                    <figure class="gallery-item reveal">
-                        <img src="images/photo_5_2026-02-03_11-45-29.jpg"
-                             alt="Інтер'єр студії краси Euphoria">
-                        <figcaption class="gallery-tag">Interior</figcaption>
-                    </figure>
-                    <figure class="gallery-item reveal">
-                        <img src="images/photo_6_2026-02-03_11-45-29.jpg"
-                             alt="Робоче місце майстра манікюру">
-                        <figcaption class="gallery-tag">Details</figcaption>
-                    </figure>
-                    <figure class="gallery-item reveal">
-                        <img src="images/photo_7_2026-02-03_11-45-29.jpg"
-                             alt="Щаслива клієнтка після процедури">
-                        <figcaption class="gallery-tag">Clients</figcaption>
-                    </figure>
-                    <figure class="gallery-item reveal">
-                        <img src="images/photo_8_2026-02-03_11-45-29.jpg"
-                             alt="Деталі інтер'єру та декору">
-                        <figcaption class="gallery-tag">Atmosphere</figcaption>
-                    </figure>
-                </div>
-
-                <p class="gallery-note reveal">
-                    *Інтеграція з Google My Business налаштовується через JavaScript і API-ключ.
-                    Фото кешуються в браузері / на бекенді до 24 годин, а якщо сервіс недоступний —
-                    відображаються ці затверджені зображення студії.
-                </p>
-            </div>
-        </section>
 
         <!-- CONTACTS -->
         <section id="contacts" class="contacts">
@@ -2092,96 +1943,6 @@
         updateParallax(); // початкове значення
     })();
 
-    // ===== Google My Business (Google Business Profile) Live Gallery =====
-    (function setupGmbGallery() {
-        var GMB_CACHE_KEY = 'euphoria_gmb_gallery_cache_v1';
-        var GMB_CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 години
-        // Бекенд-ендпоінт, який повинен повертати масив фото з профілю за адресою
-        // https://share.google/UXYlYC3CyzJgRinBz
-        //
-        // Формат очікуваної відповіді:
-        // [ { url: 'https://...', alt: '...', tag: 'Interior' }, ... ]
-        var GMB_PROXY_ENDPOINT = '/api/gmb-media';
-
-        var galleryGrid = document.getElementById('galleryGrid');
-        if (!galleryGrid) return;
-
-        function renderGallery(items) {
-            if (!Array.isArray(items) || !items.length) return;
-
-            galleryGrid.innerHTML = '';
-
-            items.forEach(function (item, index) {
-                var figure = document.createElement('figure');
-                figure.className = 'gallery-item reveal visible'; // одразу видимі, без анімації скролу
-
-                var img = document.createElement('img');
-                img.src = item.url;
-                img.loading = index > 1 ? 'lazy' : 'eager';
-                img.alt = item.alt || 'Euphoria — студія краси, фото з Google профілю';
-
-                var caption = document.createElement('figcaption');
-                caption.className = 'gallery-tag';
-                caption.textContent = item.tag || 'Live';
-
-                figure.appendChild(img);
-                figure.appendChild(caption);
-                galleryGrid.appendChild(figure);
-            });
-        }
-
-        function getCached() {
-            try {
-                var raw = localStorage.getItem(GMB_CACHE_KEY);
-                if (!raw) return null;
-                var parsed = JSON.parse(raw);
-                if (!parsed || !parsed.timestamp || !Array.isArray(parsed.items)) return null;
-                if (Date.now() - parsed.timestamp > GMB_CACHE_TTL_MS) return null;
-                return parsed.items;
-            } catch (e) {
-                return null;
-            }
-        }
-
-        function setCached(items) {
-            try {
-                localStorage.setItem(
-                    GMB_CACHE_KEY,
-                    JSON.stringify({ timestamp: Date.now(), items: items })
-                );
-            } catch (e) {
-                // localStorage може бути недоступним (режим приватності тощо)
-            }
-        }
-
-        function fetchLiveGallery() {
-            // Якщо бекенд ще не налаштований — не ламаємо сайт
-            if (!GMB_PROXY_ENDPOINT) return;
-
-            fetch(GMB_PROXY_ENDPOINT, { method: 'GET' })
-                .then(function (res) {
-                    if (!res.ok) throw new Error('GMB proxy error');
-                    return res.json();
-                })
-                .then(function (data) {
-                    if (!Array.isArray(data) || !data.length) return;
-                    renderGallery(data);
-                    setCached(data);
-                })
-                .catch(function () {
-                    // Якщо щось пішло не так — просто залишаємо дефолтні фото з розмітки
-                });
-        }
-
-        // 1. Пробуємо взяти закешовані фото (24 години)
-        var cached = getCached();
-        if (cached && cached.length) {
-            renderGallery(cached);
-        } else {
-            // 2. Якщо кешу немає / протермінований — тягнемо нові фото
-            fetchLiveGallery();
-        }
-    })();
 </script>
 </body>
 </html>
