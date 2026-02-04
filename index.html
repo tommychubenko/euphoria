@@ -15,22 +15,22 @@
     <meta property="og:locale" content="uk_UA">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --bg-ivory: #f8f4f8;
             --bg-soft: #f3eef5;
             --bg-card: #ffffff;
-            --accent: #8b6fa8; /* soft purple */
-            --accent-dark: #6b4f87;
-            --accent-light: #a88bc4;
-            --accent-soft: rgba(139, 111, 168, 0.08);
+            --accent: #6A4E91; /* deep purple - elite premium */
+            --accent-dark: #5a3f7a;
+            --accent-light: #8b6fa8;
+            --accent-soft: rgba(106, 78, 145, 0.08);
             --text-main: #2d1f3a;
             --text-muted: #6b5a7a;
-            --border-soft: rgba(139, 111, 168, 0.16);
+            --border-soft: rgba(106, 78, 145, 0.16);
             --shadow-soft: 0 22px 40px rgba(45, 31, 58, 0.12);
-            --shadow-purple: 0 12px 32px rgba(139, 111, 168, 0.2);
+            --shadow-purple: 0 12px 32px rgba(106, 78, 145, 0.25);
             --radius-lg: 24px;
             --radius-md: 18px;
             --radius-pill: 999px;
@@ -94,7 +94,7 @@
             z-index: 40;
             backdrop-filter: blur(12px);
             background: linear-gradient(to bottom, rgba(248, 244, 248, 0.95), rgba(243, 238, 245, 0.78));
-            border-bottom: 1px solid rgba(139, 111, 168, 0.15);
+            border-bottom: 1px solid rgba(106, 78, 145, 0.15);
         }
 
         .header-inner {
@@ -119,9 +119,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 12px 24px rgba(139, 111, 168, 0.42);
+            box-shadow: 0 12px 24px rgba(106, 78, 145, 0.42);
             color: #fff;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 18px;
             letter-spacing: 0.06em;
         }
@@ -133,7 +133,7 @@
         }
 
         .brand-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 18px;
             letter-spacing: 0.12em;
             text-transform: uppercase;
@@ -299,7 +299,7 @@
         }
 
         .hero-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 28px;
             line-height: 1.2;
             letter-spacing: 0.02em;
@@ -390,7 +390,7 @@
         }
 
         .btn-primary:hover {
-            box-shadow: 0 22px 40px rgba(139, 111, 168, 0.38);
+            box-shadow: 0 22px 40px rgba(106, 78, 145, 0.38);
             transform: translateY(-2px) scale(1.02);
             background: linear-gradient(135deg, var(--accent-light), var(--accent));
         }
@@ -534,7 +534,7 @@
         }
 
         .section-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 24px;
             letter-spacing: 0.03em;
         }
@@ -602,6 +602,103 @@
         .about-icon-text {
             font-size: 11px;
             color: var(--text-muted);
+        }
+
+        /* Lounge */
+        .lounge {
+            background: linear-gradient(135deg, #faf8fc 0%, #f3eef5 100%);
+            padding: 72px 0;
+        }
+
+        .lounge-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 28px;
+        }
+
+        .lounge-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            background: #ddd;
+            margin: 0;
+        }
+
+        .lounge-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.02);
+            transition: transform 0.45s ease;
+            display: block;
+        }
+
+        .lounge-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .lounge-caption {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.42);
+            color: #fff;
+            font-size: 12px;
+            backdrop-filter: blur(8px);
+        }
+
+        .lounge-caption-icon {
+            font-size: 16px;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .lounge-caption-text {
+            flex: 1;
+            line-height: 1.4;
+        }
+
+        @media (min-width: 600px) {
+            .lounge-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            .lounge-caption {
+                font-size: 13px;
+                padding: 10px 14px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .lounge-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 16px;
+            }
+
+            .lounge-caption {
+                font-size: 14px;
+                padding: 12px 16px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .lounge-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 10px;
+            }
+
+            .lounge-caption {
+                font-size: 12px;
+                padding: 8px 12px;
+            }
         }
 
         /* Services */
@@ -693,7 +790,7 @@
         }
 
         .service-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 18px;
         }
 
@@ -720,17 +817,17 @@
             padding: 12px 20px;
             border-radius: var(--radius-pill);
             background: var(--accent-soft);
-            border: 1.5px solid rgba(139, 111, 168, 0.2);
+            border: 1.5px solid rgba(106, 78, 145, 0.2);
             transition: var(--transition-soft);
             width: 100%;
             margin-top: 8px;
         }
 
         .service-toggle:hover {
-            background: rgba(139, 111, 168, 0.12);
+            background: rgba(106, 78, 145, 0.12);
             border-color: var(--accent);
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(139, 111, 168, 0.15);
+            box-shadow: 0 4px 12px rgba(106, 78, 145, 0.15);
         }
 
         .service-toggle-icon {
@@ -750,11 +847,11 @@
 
         .service-toggle:hover .service-toggle-icon {
             transform: scale(1.1);
-            box-shadow: 0 2px 8px rgba(139, 111, 168, 0.3);
+            box-shadow: 0 2px 8px rgba(106, 78, 145, 0.3);
         }
 
         .service-toggle.open {
-            background: rgba(139, 111, 168, 0.15);
+            background: rgba(106, 78, 145, 0.15);
             border-color: var(--accent);
         }
 
@@ -767,7 +864,7 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.35s ease;
-            border-top: 1px solid rgba(139, 111, 168, 0.15);
+            border-top: 1px solid rgba(106, 78, 145, 0.15);
             flex-shrink: 0;
         }
 
@@ -825,7 +922,7 @@
             padding: 6px 12px;
             border-radius: 999px;
             background: rgba(255, 255, 255, 0.9);
-            border: 1px dashed rgba(139, 111, 168, 0.35);
+            border: 1px dashed rgba(106, 78, 145, 0.35);
             font-size: 11px;
             color: var(--text-muted);
         }
@@ -906,7 +1003,7 @@
         }
 
         .contacts-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 20px;
             margin-bottom: 10px;
         }
@@ -939,7 +1036,7 @@
             gap: 8px;
             padding: 9px 14px;
             border-radius: 999px;
-            border: 1px solid rgba(139, 111, 168, 0.3);
+            border: 1px solid rgba(106, 78, 145, 0.3);
             background: rgba(255, 255, 255, 0.9);
             font-size: 12px;
             cursor: pointer;
@@ -947,10 +1044,10 @@
         }
 
         .chip:hover {
-            background: rgba(139, 111, 168, 0.08);
+            background: rgba(106, 78, 145, 0.08);
             border-color: var(--accent);
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(139, 111, 168, 0.15);
+            box-shadow: 0 4px 12px rgba(106, 78, 145, 0.15);
         }
 
         .chip-icon {
@@ -967,7 +1064,7 @@
         .hours-block {
             margin-top: 16px;
             padding-top: 12px;
-            border-top: 1px dashed rgba(139, 111, 168, 0.3);
+            border-top: 1px dashed rgba(106, 78, 145, 0.3);
         }
 
         .hours-title {
@@ -1048,7 +1145,7 @@
             right: 0;
             background: rgba(248, 244, 248, 0.98);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(139, 111, 168, 0.15);
+            border-bottom: 1px solid rgba(106, 78, 145, 0.15);
             padding: 20px;
             display: none;
             flex-direction: column;
@@ -1071,7 +1168,7 @@
             text-transform: uppercase;
             color: var(--text-main);
             padding: 12px 0;
-            border-bottom: 1px solid rgba(139, 111, 168, 0.1);
+            border-bottom: 1px solid rgba(106, 78, 145, 0.1);
             transition: var(--transition-soft);
         }
 
@@ -1122,7 +1219,7 @@
 
         .floating-contact-btn:hover {
             transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 24px 48px rgba(139, 111, 168, 0.45);
+            box-shadow: 0 24px 48px rgba(106, 78, 145, 0.45);
         }
 
         .floating-contact-menu {
@@ -1155,13 +1252,13 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            box-shadow: 0 8px 20px rgba(139, 111, 168, 0.2);
+            box-shadow: 0 8px 20px rgba(106, 78, 145, 0.2);
             transition: var(--transition-soft);
         }
 
         .floating-contact-item:hover {
             transform: scale(1.1);
-            box-shadow: 0 12px 28px rgba(139, 111, 168, 0.3);
+            box-shadow: 0 12px 28px rgba(106, 78, 145, 0.3);
             border-color: var(--accent);
         }
 
@@ -1343,11 +1440,11 @@
                         </div>
                         <h1 class="hero-title">
                             Відчуй справжню <span>Ейфорію</span><br>
-                            у догляді за своїм тілом та обличчям.
+                            до кінчиків пальців.
                         </h1>
                         <p class="hero-subtitle">
-                            <strong>Euphoria beauty</strong> — б'юті простір, де кожен запис — це не просто послуга,
-                            а ритуал відпочинку, уваги до деталей та теплого сервісу.
+                            <strong>Euphoria beauty</strong> — б'юті-простір, де кожен запис — це не просто послуга,
+                            а ритуал відпочинку. Лаундж-атмосфера з тихою музикою, приємними ароматами та смачною кавою.
                         </p>
                         <div class="hero-actions">
                             <button class="btn-primary"
@@ -1403,10 +1500,10 @@
             <div class="container">
                 <div class="section-heading reveal">
                     <div class="section-eyebrow">Наші цінності</div>
-                    <h2 class="section-title">Простір, де твій комфорт — наш пріоритет</h2>
+                    <h2 class="section-title">Б'юті-простір, де кожен візит — ритуал відпочинку</h2>
                     <p class="section-desc">
-                        Ми створили Euphoria як місце, де можна перевести подих, відкласти телефон і
-                        на годину-другу дозволити собі бути лише в моменті.
+                        Euphoria beauty — це не просто послуга, а простір, де можна перевести подих, відкласти телефон і
+                        на годину-другу дозволити собі бути лише в моменті. Лаундж-атмосфера для твого комфорту.
                     </p>
                 </div>
 
@@ -1414,15 +1511,18 @@
                     <div class="about-text reveal">
                         <p>
                             Для нас важливо, щоб ти виходила зі студії не лише з ідеальним результатом,
-                            а й зі світлою головою та відчуттям внутрішньої рівноваги.
+                            а й зі світлою головою та відчуттям внутрішньої рівноваги. Кожен візит — це ритуал відпочинку,
+                            де тиші, приємним ароматам та смачній каві відводиться така ж важлива роль, як і професійній роботі.
                         </p>
                         <p>
                             Ми працюємо в форматі <strong>soft premium</strong>: м'яка комунікація,
                             делікатний сервіс, преміальні матеріали та чесний підхід до рекомендацій.
-                        </p>
-                        <p>
                             Ти завжди можеш сказати "сьогодні хочу мовчки" або "поговорімо про важливе"
                             — ми підтримуємо будь-який формат твого відпочинку.
+                        </p>
+                        <p>
+                            <strong>100% стерильність</strong> — це не просто слова. Одноразові розхідні матеріали,
+                            багаторівнева професійна обробка інструментів. Безпека понад усе, навіть для дітей та вагітних.
                         </p>
                     </div>
 
@@ -1453,6 +1553,55 @@
             </div>
         </section>
 
+        <!-- LOUNGE -->
+        <section id="lounge" class="lounge">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div class="section-eyebrow">Лаундж-простір</div>
+                    <h2 class="section-title">Де комфорт та атмосфера — частина послуги</h2>
+                    <p class="section-desc">
+                        У нашому просторі ти знайдеш не лише професійний догляд, а й затишок, де можна розслабитися,
+                        насолодитися смачною кавою та чаєм, слухати тиху музику та відчути приємні аромати.
+                        Ми створили лаундж-атмосферу, де кожен деталь працює на твій комфорт.
+                    </p>
+                </div>
+
+                <div class="lounge-grid reveal">
+                    <figure class="lounge-item">
+                        <img src="images/photo_1_2026-02-03_11-45-29.jpg" alt="Лаундж-простір студії Euphoria — кава та затишок">
+                        <figcaption class="lounge-caption">
+                            <span class="lounge-caption-icon">☕</span>
+                            <span class="lounge-caption-text">Смачна кава та чай</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="lounge-item">
+                        <img src="images/photo_6_2026-02-03_11-45-29.jpg" alt="Інтер'єр лаундж-зони з кавою та атмосферою">
+                        <figcaption class="lounge-caption">
+                            <span class="lounge-caption-icon">✨</span>
+                            <span class="lounge-caption-text">Лаундж-атмосфера</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="lounge-item">
+                        <img src="images/photo_7_2026-02-03_11-45-29.jpg" alt="Затишний інтер'єр студії Euphoria">
+                        <figcaption class="lounge-caption">
+                            <span class="lounge-caption-icon">🕯️</span>
+                            <span class="lounge-caption-text">Приємні аромати</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="lounge-item">
+                        <img src="images/photo_8_2026-02-03_11-45-29.jpg" alt="Деталі інтер'єру лаундж-зони">
+                        <figcaption class="lounge-caption">
+                            <span class="lounge-caption-icon">🎵</span>
+                            <span class="lounge-caption-text">Тиха музика</span>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
         <!-- SERVICES -->
         <section id="services" class="services">
             <div class="container">
@@ -1479,8 +1628,8 @@
                                 <div class="service-duration">15–60 хв</div>
                             </div>
                             <p class="service-text">
-                                Використання діодного лазера з індивідуальним налаштуванням системи охолодження.
-                                Помітний результат після першої процедури.
+                                Класика результативності — діодний лазер з індивідуальним налаштуванням системи охолодження.
+                                Помітний результат після першої процедури. Професійне обладнання для максимального комфорту та ефективності.
                             </p>
                             <button type="button" class="service-toggle" data-toggle>
                                 <span class="service-toggle-icon">+</span>
@@ -1587,8 +1736,8 @@
                                 <div class="service-duration">60–90 хв</div>
                             </div>
                             <p class="service-text">
-                                Професійні процедури для сяйва, пружності та здорового тону шкіри обличчя та тіла.
-                                RF-ліфтинг, мікронідлінг, комбінована чистка.
+                                Індивідуальна стратегія молодості. Професійні процедури для сяйва, пружності та здорового тону шкіри обличчя та тіла.
+                                RF-ліфтинг, мікронідлінг з екзосомами, комбінована чистка та вакуумний масаж.
                             </p>
                             <button type="button" class="service-toggle" data-toggle>
                                 <span class="service-toggle-icon">+</span>
@@ -1646,8 +1795,8 @@
                                 <div class="service-duration">120–180 хв</div>
                             </div>
                             <p class="service-text">
-                                Мета — підкреслити виразність, а не замінити макіяж. Використання сучасних технік напилення
-                                для природного та довготривалого результату.
+                                Секрет краси — не замінити макіяж, а додати виразності. Мета — підкреслити природну красу.
+                                Використання сучасних технік напилення для природного та довготривалого результату.
                             </p>
                             <button type="button" class="service-toggle" data-toggle>
                                 <span class="service-toggle-icon">+</span>
@@ -1670,12 +1819,14 @@
                                     <div class="price-row">
                                         <div>
                                             <div class="price-name">Видалення (Лазер)</div>
+                                            <div class="price-meta">комбінований підхід для найкращого результату</div>
                                         </div>
                                         <div class="price-value">500 ₴</div>
                                     </div>
                                     <div class="price-row">
                                         <div>
                                             <div class="price-name">Видалення (Ремувер)</div>
+                                            <div class="price-meta">альтернативний метод</div>
                                         </div>
                                         <div class="price-value">700 ₴</div>
                                     </div>
