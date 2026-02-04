@@ -3,22 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Euphoria — студія краси</title>
+    <title>Euphoria Beauty — б'юті простір у Полтаві | Лазерна епіляція, косметологія, шугаринг</title>
+    <meta name="description" content="Euphoria Beauty — б'юті простір у Полтаві. Лазерна епіляція, шугаринг, косметологія, перманентний макіяж. Професійний догляд за тілом та обличчям. Запис онлайн.">
+    <meta name="keywords" content="лазерна епіляція Полтава, косметологія Полтава, шугаринг Полтава, перманентний макіяж Полтава, б'юті студія Полтава, Euphoria Beauty">
+    <meta name="author" content="Euphoria Beauty">
+    <meta name="geo.region" content="UA-53">
+    <meta name="geo.placename" content="Полтава">
+    <meta property="og:title" content="Euphoria Beauty — б'юті простір у Полтаві">
+    <meta property="og:description" content="Лазерна епіляція, шугаринг, косметологія, перманентний макіяж. Професійний догляд за тілом та обличчям.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="uk_UA">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-ivory: #f8f3ee;
-            --bg-soft: #f5ebe4;
+            --bg-ivory: #f8f4f8;
+            --bg-soft: #f3eef5;
             --bg-card: #ffffff;
-            --accent: #c86f5a; /* dusty terracotta */
-            --accent-soft: rgba(200, 111, 90, 0.08);
-            --text-main: #3f3430;
-            --text-muted: #7c6e67;
-            --border-soft: rgba(127, 97, 83, 0.16);
-            --shadow-soft: 0 22px 40px rgba(30, 19, 12, 0.12);
+            --accent: #8b6fa8; /* soft purple */
+            --accent-dark: #6b4f87;
+            --accent-light: #a88bc4;
+            --accent-soft: rgba(139, 111, 168, 0.08);
+            --text-main: #2d1f3a;
+            --text-muted: #6b5a7a;
+            --border-soft: rgba(139, 111, 168, 0.16);
+            --shadow-soft: 0 22px 40px rgba(45, 31, 58, 0.12);
+            --shadow-purple: 0 12px 32px rgba(139, 111, 168, 0.2);
             --radius-lg: 24px;
             --radius-md: 18px;
             --radius-pill: 999px;
@@ -42,7 +54,7 @@
 
         body {
             font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: radial-gradient(circle at top left, #fdf7f0 0, #f4e6da 40%, #f1e3dc 100%);
+            background: radial-gradient(circle at top left, #faf8fc 0, #f3eef5 40%, #ede8f2 100%);
             color: var(--text-main);
             -webkit-font-smoothing: antialiased;
         }
@@ -81,15 +93,16 @@
             top: 0;
             z-index: 40;
             backdrop-filter: blur(12px);
-            background: linear-gradient(to bottom, rgba(248, 243, 238, 0.95), rgba(248, 243, 238, 0.78));
-            border-bottom: 1px solid rgba(191, 151, 130, 0.15);
+            background: linear-gradient(to bottom, rgba(248, 244, 248, 0.95), rgba(243, 238, 245, 0.78));
+            border-bottom: 1px solid rgba(139, 111, 168, 0.15);
         }
 
         .header-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 14px 20px;
+            padding: 20px 20px;
+            min-height: 80px;
         }
 
         .brand {
@@ -102,11 +115,11 @@
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            background: radial-gradient(circle at 30% 15%, #fdf7f2 0, #f4ddd1 35%, #c86f5a 100%);
+            background: radial-gradient(circle at 30% 15%, #faf8fc 0, #e8dff0 35%, #8b6fa8 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 12px 24px rgba(136, 83, 63, 0.42);
+            box-shadow: 0 12px 24px rgba(139, 111, 168, 0.42);
             color: #fff;
             font-family: 'Playfair Display', serif;
             font-size: 18px;
@@ -171,29 +184,76 @@
             position: relative;
             display: flex;
             align-items: center;
-            min-height: calc(100vh - 68px);
-            padding: 28px 0 60px;
-            background: radial-gradient(circle at top, #fdf7f2 0, #f3e4d7 40%, #f0e2d9 100%);
+            min-height: calc(100vh - 80px);
+            padding: 20px 0 40px;
+            background: radial-gradient(circle at top, #faf8fc 0, #f3eef5 40%, #ede8f2 100%);
+            overflow: hidden;
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                min-height: auto;
+                padding: 16px 0 32px;
+            }
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('images/photo_2026-01-29_08-31-47.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        @media (max-width: 767px) {
+            .hero::before {
+                background-attachment: scroll;
+            }
+        }
+
+        .hero > * {
+            position: relative;
+            z-index: 1;
         }
 
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 26px;
+            gap: 20px;
             align-items: stretch;
-            border-radius: 32px;
+            border-radius: 24px;
             background: #fff;
             box-shadow: 0 28px 60px rgba(92, 66, 50, 0.2);
-            padding: 18px 18px 18px;
+            padding: 16px;
+        }
+        
+        @media (max-width: 480px) {
+            .hero-grid {
+                gap: 16px;
+                border-radius: 20px;
+                padding: 14px;
+            }
         }
 
         .hero-media-shell {
             position: relative;
-            border-radius: 26px;
+            border-radius: 20px;
             overflow: hidden;
             background: #ddd;
-            min-height: 240px;
+            min-height: 200px;
             box-shadow: 0 22px 40px rgba(60, 41, 30, 0.22);
+        }
+        
+        @media (max-width: 480px) {
+            .hero-media-shell {
+                border-radius: 16px;
+                min-height: 180px;
+            }
         }
 
         .hero-media-fallback {
@@ -204,6 +264,12 @@
             background-position: center;
             transform: scale(1.02);
             filter: saturate(1.03) contrast(1.03);
+            will-change: transform;
+        }
+        
+        .hero-media-shell.parallax .hero-media-fallback {
+            transform: scale(1.05) translateY(var(--parallax-offset, 0px));
+            transition: transform 0.1s ease-out;
         }
 
         .hero-media-overlay {
@@ -234,23 +300,39 @@
 
         .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            line-height: 1.15;
+            font-size: 28px;
+            line-height: 1.2;
             letter-spacing: 0.02em;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 24px;
+                line-height: 1.25;
+                margin-bottom: 8px;
+            }
         }
 
         .hero-title span {
-            background-image: linear-gradient(90deg, #c86f5a, #b25848);
+            background-image: linear-gradient(90deg, #8b6fa8, #6b4f87);
             -webkit-background-clip: text;
+            background-clip: text;
             color: transparent;
         }
 
         .hero-subtitle {
-            font-size: 14px;
-            line-height: 1.6;
+            font-size: 13px;
+            line-height: 1.5;
             color: var(--text-muted);
-            max-width: 420px;
+            max-width: 100%;
+        }
+        
+        @media (max-width: 480px) {
+            .hero-subtitle {
+                font-size: 12px;
+                line-height: 1.5;
+            }
         }
 
         .hero-subtitle strong {
@@ -259,10 +341,18 @@
         }
 
         .hero-actions {
-            margin-top: 20px;
+            margin-top: 16px;
             display: flex;
-            align-items: center;
-            gap: 16px;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 12px;
+        }
+        
+        @media (max-width: 480px) {
+            .hero-actions {
+                margin-top: 12px;
+                gap: 10px;
+            }
         }
 
         .btn-primary {
@@ -273,16 +363,24 @@
             padding: 12px 24px;
             border-radius: var(--radius-pill);
             border: none;
-            background: linear-gradient(135deg, #c86f5a, #af5a49);
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
             color: #fff;
             font-size: 14px;
             font-weight: 500;
             letter-spacing: 0.14em;
             text-transform: uppercase;
             cursor: pointer;
-            box-shadow: 0 18px 32px rgba(136, 83, 63, 0.33);
+            box-shadow: var(--shadow-purple);
             transition: var(--transition-soft);
             white-space: nowrap;
+        }
+        
+        @media (max-width: 480px) {
+            .btn-primary {
+                padding: 10px 20px;
+                font-size: 12px;
+                letter-spacing: 0.1em;
+            }
         }
 
         .btn-primary span.icon {
@@ -292,17 +390,25 @@
         }
 
         .btn-primary:hover {
-            box-shadow: 0 22px 40px rgba(136, 83, 63, 0.38);
-            transform: translateY(-1px);
+            box-shadow: 0 22px 40px rgba(139, 111, 168, 0.38);
+            transform: translateY(-2px) scale(1.02);
+            background: linear-gradient(135deg, var(--accent-light), var(--accent));
         }
 
         .btn-primary:hover span.icon {
-            transform: translateX(3px);
+            transform: translateX(3px) translateY(-1px);
         }
 
         .hero-note {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-muted);
+            text-align: center;
+        }
+        
+        @media (max-width: 480px) {
+            .hero-note {
+                font-size: 10px;
+            }
         }
 
         .hero-note strong {
@@ -360,26 +466,48 @@
         }
 
         .hero-icons-row {
-            margin-top: 20px;
+            margin-top: 16px;
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
+            justify-content: center;
+        }
+        
+        @media (max-width: 480px) {
+            .hero-icons-row {
+                margin-top: 12px;
+                gap: 6px;
+            }
         }
 
         .hero-icon-pill {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 8px 14px;
+            gap: 6px;
+            padding: 6px 12px;
             border-radius: 999px;
             background: #faf3ec;
             border: 1px solid rgba(182, 142, 123, 0.5);
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-main);
+        }
+        
+        @media (max-width: 480px) {
+            .hero-icon-pill {
+                padding: 5px 10px;
+                font-size: 10px;
+                gap: 5px;
+            }
         }
 
         .hero-icon-pill span {
-            font-size: 14px;
+            font-size: 13px;
+        }
+        
+        @media (max-width: 480px) {
+            .hero-icon-pill span {
+                font-size: 12px;
+            }
         }
 
         /* Sections */
@@ -485,6 +613,7 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 16px;
+            align-items: stretch;
         }
 
         .service-card {
@@ -496,6 +625,9 @@
             border: 1px solid rgba(163, 128, 109, 0.18);
             transform: translateY(0);
             transition: var(--transition-soft);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .service-card::before {
@@ -547,6 +679,9 @@
             position: relative;
             padding: 16px 16px 8px;
             z-index: 1;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .service-title-row {
@@ -576,34 +711,64 @@
         .service-toggle {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            font-size: 12px;
+            justify-content: center;
+            gap: 10px;
+            font-size: 13px;
+            font-weight: 500;
             color: var(--accent);
             cursor: pointer;
-            padding: 4px 0 10px;
+            padding: 12px 20px;
+            border-radius: var(--radius-pill);
+            background: var(--accent-soft);
+            border: 1.5px solid rgba(139, 111, 168, 0.2);
+            transition: var(--transition-soft);
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .service-toggle:hover {
+            background: rgba(139, 111, 168, 0.12);
+            border-color: var(--accent);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(139, 111, 168, 0.15);
         }
 
         .service-toggle-icon {
-            width: 18px;
-            height: 18px;
-            border-radius: 999px;
-            border: 1px solid rgba(200, 111, 90, 0.5);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
+            font-size: 14px;
+            font-weight: 600;
             transition: var(--transition-soft);
+            flex-shrink: 0;
+        }
+
+        .service-toggle:hover .service-toggle-icon {
+            transform: scale(1.1);
+            box-shadow: 0 2px 8px rgba(139, 111, 168, 0.3);
+        }
+
+        .service-toggle.open {
+            background: rgba(139, 111, 168, 0.15);
+            border-color: var(--accent);
         }
 
         .service-toggle.open .service-toggle-icon {
-            transform: rotate(90deg);
+            transform: rotate(45deg);
+            background: var(--accent-dark);
         }
 
         .service-prices {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.35s ease;
-            border-top: 1px solid rgba(241, 224, 213, 0.8);
+            border-top: 1px solid rgba(139, 111, 168, 0.15);
+            flex-shrink: 0;
         }
 
         .service-prices-inner {
@@ -660,7 +825,7 @@
             padding: 6px 12px;
             border-radius: 999px;
             background: rgba(255, 255, 255, 0.9);
-            border: 1px dashed rgba(200, 111, 90, 0.45);
+            border: 1px dashed rgba(139, 111, 168, 0.35);
             font-size: 11px;
             color: var(--text-muted);
         }
@@ -774,7 +939,7 @@
             gap: 8px;
             padding: 9px 14px;
             border-radius: 999px;
-            border: 1px solid rgba(188, 142, 118, 0.4);
+            border: 1px solid rgba(139, 111, 168, 0.3);
             background: rgba(255, 255, 255, 0.9);
             font-size: 12px;
             cursor: pointer;
@@ -782,8 +947,10 @@
         }
 
         .chip:hover {
-            background: #f6e6dc;
+            background: rgba(139, 111, 168, 0.08);
             border-color: var(--accent);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(139, 111, 168, 0.15);
         }
 
         .chip-icon {
@@ -800,7 +967,7 @@
         .hours-block {
             margin-top: 16px;
             padding-top: 12px;
-            border-top: 1px dashed rgba(188, 142, 118, 0.5);
+            border-top: 1px dashed rgba(139, 111, 168, 0.3);
         }
 
         .hours-title {
@@ -836,25 +1003,166 @@
             height: 100%;
         }
 
-        /* Floating CTA for mobile */
-        .mobile-cta {
+        /* Burger Menu */
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 100;
+        }
+        
+        @media (max-width: 767px) {
+            .burger-menu {
+                display: flex;
+            }
+        }
+
+        .burger-line {
+            width: 100%;
+            height: 2px;
+            background: var(--text-main);
+            border-radius: 2px;
+            transition: var(--transition-soft);
+        }
+
+        .burger-menu.active .burger-line:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .burger-menu.active .burger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger-menu.active .burger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .mobile-nav {
             position: fixed;
-            left: 16px;
-            right: 16px;
-            bottom: 18px;
-            z-index: 50;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: rgba(248, 244, 248, 0.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(139, 111, 168, 0.15);
+            padding: 20px;
+            display: none;
+            flex-direction: column;
+            gap: 16px;
+            z-index: 99;
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .mobile-nav.active {
             display: flex;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-nav a {
+            font-size: 14px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-main);
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(139, 111, 168, 0.1);
+            transition: var(--transition-soft);
+        }
+
+        .mobile-nav a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--accent);
+            padding-left: 8px;
+        }
+
+        /* Floating CTA for mobile - hidden */
+        .mobile-cta {
+            display: none;
+        }
+
+        /* Floating contact button (Telegram/Viber) */
+        .floating-contact {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 45;
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .floating-contact {
+                display: block;
+            }
+        }
+
+        .floating-contact-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: var(--shadow-purple);
+            transition: var(--transition-soft);
+            display: flex;
+            align-items: center;
             justify-content: center;
         }
 
-        .mobile-cta-inner {
-            width: 100%;
-            max-width: 420px;
+        .floating-contact-btn:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 24px 48px rgba(139, 111, 168, 0.45);
         }
 
-        .mobile-cta-btn {
-            width: 100%;
-            border-radius: var(--radius-pill);
+        .floating-contact-menu {
+            position: absolute;
+            bottom: 75px;
+            right: 0;
+            display: none;
+            flex-direction: column;
+            gap: 12px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .floating-contact.active .floating-contact-menu {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .floating-contact-item {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid var(--accent-soft);
+            color: var(--accent);
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(139, 111, 168, 0.2);
+            transition: var(--transition-soft);
+        }
+
+        .floating-contact-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 28px rgba(139, 111, 168, 0.3);
+            border-color: var(--accent);
         }
 
         /* Scroll reveal (basic) */
@@ -942,12 +1250,9 @@
             }
 
             .services-bento {
-                grid-template-columns: 2fr 1.4fr;
+                grid-template-columns: repeat(2, 1fr);
                 grid-auto-rows: 1fr;
-            }
-
-            .service-card--tall {
-                grid-row: span 2;
+                align-items: stretch;
             }
 
             .contacts-grid {
@@ -978,8 +1283,9 @@
             }
 
             .services-bento {
-                grid-template-columns: 1.4fr 1.1fr;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
+                align-items: stretch;
             }
 
             .gallery-grid {
@@ -1009,11 +1315,21 @@
                 <a href="#contacts">Контакти</a>
             </nav>
 
-            <button class="btn-primary header-cta" onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})">
-                Подарувати собі час
+            <button class="burger-menu" id="burgerMenu" aria-label="Відкрити меню">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
             </button>
         </div>
     </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="#about" onclick="closeMobileMenu()">Про студію</a>
+        <a href="#services" onclick="closeMobileMenu()">Послуги</a>
+        <a href="#gallery" onclick="closeMobileMenu()">Галерея</a>
+        <a href="#contacts" onclick="closeMobileMenu()">Контакти</a>
+    </nav>
 
     <main>
         <!-- HERO -->
@@ -1023,14 +1339,14 @@
                     <div class="hero-left reveal">
                         <div class="hero-pretitle">
                             <span class="hero-pre-dot"></span>
-                            Простір турботи про себе
+                            Б'юті простір у Полтаві
                         </div>
                         <h1 class="hero-title">
                             Відчуй справжню <span>Ейфорію</span><br>
-                            до кінчиків пальців.
+                            у догляді за своїм тілом та обличчям.
                         </h1>
                         <p class="hero-subtitle">
-                            <strong>Soft Premium студія краси</strong>, де кожен запис — це не просто манікюр,
+                            <strong>Euphoria beauty</strong> — б'юті простір, де кожен запис — це не просто послуга,
                             а ритуал відпочинку, уваги до деталей та теплого сервісу.
                         </p>
                         <div class="hero-actions">
@@ -1060,7 +1376,7 @@
                     </div>
 
                     <div class="hero-right reveal">
-                        <div class="hero-media-shell">
+                        <div class="hero-media-shell parallax">
                             <!-- TODO: Замінити на живе відео / слайдер з Google My Business -->
                             <div class="hero-media-fallback"></div>
                             <div class="hero-media-overlay"></div>
@@ -1086,7 +1402,7 @@
         <section id="about" class="about">
             <div class="container">
                 <div class="section-heading reveal">
-                    <div class="section-eyebrow">Sense &amp; Vibe</div>
+                    <div class="section-eyebrow">Наші цінності</div>
                     <h2 class="section-title">Простір, де твій комфорт — наш пріоритет</h2>
                     <p class="section-desc">
                         Ми створили Euphoria як місце, де можна перевести подих, відкласти телефон і
@@ -1097,15 +1413,15 @@
                 <div class="about-grid">
                     <div class="about-text reveal">
                         <p>
-                            Для нас важливо, щоб ти виходила зі студії не лише з ідеальними нігтями чи
-                            доглянутою шкірою, а й зі світлою головою та відчуттям внутрішньої рівноваги.
+                            Для нас важливо, щоб ти виходила зі студії не лише з ідеальним результатом,
+                            а й зі світлою головою та відчуттям внутрішньої рівноваги.
                         </p>
                         <p>
-                            Ми працюємо в форматі <strong>soft premium</strong>: м’яка комунікація,
+                            Ми працюємо в форматі <strong>soft premium</strong>: м'яка комунікація,
                             делікатний сервіс, преміальні матеріали та чесний підхід до рекомендацій.
                         </p>
                         <p>
-                            Ти завжди можеш сказати “сьогодні хочу мовчки” або “поговорімо про важливе”
+                            Ти завжди можеш сказати "сьогодні хочу мовчки" або "поговорімо про важливе"
                             — ми підтримуємо будь-який формат твого відпочинку.
                         </p>
                     </div>
@@ -1115,21 +1431,21 @@
                             <div class="about-icon-badge">🧼</div>
                             <div class="about-icon-title">Стерильність 100%</div>
                             <div class="about-icon-text">
-                                Медична обробка інструментів, одноразові витратні матеріали — без компромісів.
+                                Одноразові розхідні матеріали, багаторівнева обробка інструментів.
                             </div>
                         </div>
                         <div class="about-icon-card">
                             <div class="about-icon-badge">✨</div>
-                            <div class="about-icon-title">Преміум-матеріали</div>
+                            <div class="about-icon-title">Матеріали</div>
                             <div class="about-icon-text">
-                                Професійні бренди для стійкого покриття та делікатного догляду за шкірою.
+                                Перевірені бренди космецевтики, професійне обладнання.
                             </div>
                         </div>
                         <div class="about-icon-card">
                             <div class="about-icon-badge">☕</div>
-                            <div class="about-icon-title">Кава та атмосфера</div>
+                            <div class="about-icon-title">Атмосфера</div>
                             <div class="about-icon-text">
-                                Тиха музика, світлі інтер’єри, запашна кава — щоб кожен візит був маленькою втечею.
+                                Відчуття комфорту, тиха музика, приємні аромати, смачна кава та чай.
                             </div>
                         </div>
                     </div>
@@ -1141,7 +1457,7 @@
         <section id="services" class="services">
             <div class="container">
                 <div class="section-heading reveal">
-                    <div class="section-eyebrow">Bento Menu</div>
+                    <div class="section-eyebrow">Послуги та Прайс</div>
                     <h2 class="section-title">Послуги, зібрані під твій настрій</h2>
                     <p class="section-desc">
                         Обирай категорію, відкривай деталізоване меню з цінами й
@@ -1150,21 +1466,21 @@
                 </div>
 
                 <div class="services-bento">
-                    <!-- Нігтьовий сервіс -->
-                    <article class="service-card service-card--tall reveal" data-service>
+                    <!-- Лазерна епіляція -->
+                    <article class="service-card reveal" data-service>
                         <div class="service-media">
                             <img src="images/photo_2_2026-02-03_11-45-29.jpg"
-                                 alt="Нігтьовий сервіс — манікюр у студії Euphoria">
-                            <div class="service-tag">Нігтьовий сервіс</div>
+                                 alt="Лазерна епіляція у студії Euphoria">
+                            <div class="service-tag">Лазерна епіляція</div>
                         </div>
                         <div class="service-body">
                             <div class="service-title-row">
-                                <h3 class="service-title">Манікюр &amp; педикюр</h3>
-                                <div class="service-duration">60–120 хв</div>
+                                <h3 class="service-title">Діодний лазер</h3>
+                                <div class="service-duration">15–60 хв</div>
                             </div>
                             <p class="service-text">
-                                Акуратна робота з шкірою, ідеальне вирівнювання, трендові відтінки та мінімалістичний дизайн
-                                — без поспіху та "по-швидкому".
+                                Використання діодного лазера з індивідуальним налаштуванням системи охолодження.
+                                Помітний результат після першої процедури.
                             </p>
                             <button type="button" class="service-toggle" data-toggle>
                                 <span class="service-toggle-icon">+</span>
@@ -1174,45 +1490,54 @@
                                 <div class="service-prices-inner">
                                     <div class="price-row">
                                         <div>
-                                            <div class="price-name">Манікюр + покриття гель-лаком</div>
-                                            <div class="price-meta">з вирівнюванням та базовим доглядом</div>
+                                            <div class="price-name">Пахви</div>
                                         </div>
-                                        <div class="price-value">від 650 ₴</div>
+                                        <div class="price-value">300 ₴</div>
                                     </div>
                                     <div class="price-row">
                                         <div>
-                                            <div class="price-name">Педикюр комплекс</div>
-                                            <div class="price-meta">повний догляд + покриття</div>
+                                            <div class="price-name">Глибоке бікіні</div>
                                         </div>
-                                        <div class="price-value">від 800 ₴</div>
+                                        <div class="price-value">650 ₴</div>
                                     </div>
                                     <div class="price-row">
                                         <div>
-                                            <div class="price-name">Корекція / зняття покриття</div>
-                                            <div class="price-meta">обережно, без травмування нігтів</div>
+                                            <div class="price-name">Гомілки</div>
                                         </div>
-                                        <div class="price-value">від 250 ₴</div>
+                                        <div class="price-value">500 ₴</div>
+                                    </div>
+                                    <div class="price-row">
+                                        <div>
+                                            <div class="price-name">Ноги повністю</div>
+                                        </div>
+                                        <div class="price-value">1000 ₴</div>
+                                    </div>
+                                    <div class="price-row">
+                                        <div>
+                                            <div class="price-name">Комплекс (Бікіні + пахви)</div>
+                                        </div>
+                                        <div class="price-value">850 ₴</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Брови / Вії -->
+                    <!-- Шугаринг -->
                     <article class="service-card reveal" data-service>
                         <div class="service-media">
                             <img src="images/photo_3_2026-02-03_11-45-29.jpg"
-                                 alt="Оформлення брів та вій у студії Euphoria">
-                            <div class="service-tag">Брови &amp; вії</div>
+                                 alt="Шугаринг у студії Euphoria">
+                            <div class="service-tag">Шугаринг</div>
                         </div>
                         <div class="service-body">
                             <div class="service-title-row">
-                                <h3 class="service-title">Акцент на погляді</h3>
-                                <div class="service-duration">40–90 хв</div>
+                                <h3 class="service-title">Дбайливе видалення</h3>
+                                <div class="service-duration">20–60 хв</div>
                             </div>
                             <p class="service-text">
-                                Індивідуальний підбір форми та відтінку, делікатні ламінування та фарбування —
-                                для природного, але виразного результату.
+                                Безпечно навіть для дітей та вагітних. Натуральна паста з цукру та лимонного соку
+                                для м'якого та ефективного видалення волосся.
                             </p>
                             <button type="button" class="service-toggle" data-toggle>
                                 <span class="service-toggle-icon">+</span>
@@ -1222,17 +1547,27 @@
                                 <div class="service-prices-inner">
                                     <div class="price-row">
                                         <div>
-                                            <div class="price-name">Оформлення брів</div>
-                                            <div class="price-meta">корекція + фарбування</div>
+                                            <div class="price-name">Обличчя</div>
                                         </div>
-                                        <div class="price-value">від 450 ₴</div>
+                                        <div class="price-value">200 ₴</div>
                                     </div>
                                     <div class="price-row">
                                         <div>
-                                            <div class="price-name">Ламінування вій</div>
-                                            <div class="price-meta">з ботоксом та фарбуванням</div>
+                                            <div class="price-name">Пахви</div>
                                         </div>
-                                        <div class="price-value">від 700 ₴</div>
+                                        <div class="price-value">170 ₴</div>
+                                    </div>
+                                    <div class="price-row">
+                                        <div>
+                                            <div class="price-name">Руки до ліктя</div>
+                                        </div>
+                                        <div class="price-value">300 ₴</div>
+                                    </div>
+                                    <div class="price-row">
+                                        <div>
+                                            <div class="price-name">Ноги повністю</div>
+                                        </div>
+                                        <div class="price-value">500 ₴</div>
                                     </div>
                                 </div>
                             </div>
@@ -1248,12 +1583,12 @@
                         </div>
                         <div class="service-body">
                             <div class="service-title-row">
-                                <h3 class="service-title">Догляд за шкірою</h3>
+                                <h3 class="service-title">Інтелектуальний догляд</h3>
                                 <div class="service-duration">60–90 хв</div>
                             </div>
                             <p class="service-text">
-                                Делікатні доглядові протоколи для сяйва, пружності та здорового тону шкіри
-                                без агресивних втручань.
+                                Професійні процедури для сяйва, пружності та здорового тону шкіри обличчя та тіла.
+                                RF-ліфтинг, мікронідлінг, комбінована чистка.
                             </p>
                             <button type="button" class="service-toggle" data-toggle>
                                 <span class="service-toggle-icon">+</span>
@@ -1263,17 +1598,86 @@
                                 <div class="service-prices-inner">
                                     <div class="price-row">
                                         <div>
-                                            <div class="price-name">Базовий догляд</div>
-                                            <div class="price-meta">очищення, маска, масаж, завершальний догляд</div>
+                                            <div class="price-name">RF-ліфтинг</div>
                                         </div>
-                                        <div class="price-value">від 900 ₴</div>
+                                        <div class="price-value">від 400 ₴</div>
                                     </div>
                                     <div class="price-row">
                                         <div>
-                                            <div class="price-name">Комплексні програми</div>
-                                            <div class="price-meta">індивідуальні протоколи під запит шкіри</div>
+                                            <div class="price-name">Мікронідлінг з екзосомами</div>
                                         </div>
-                                        <div class="price-value">індивідуально</div>
+                                        <div class="price-value">1200–2000 ₴</div>
+                                    </div>
+                                    <div class="price-row">
+                                        <div>
+                                            <div class="price-name">Комбінована чистка</div>
+                                        </div>
+                                        <div class="price-value">900 ₴</div>
+                                    </div>
+                                    <div class="price-row">
+                                        <div>
+                                            <div class="price-name">Масаж обличчя</div>
+                                            <div class="price-meta">1 година</div>
+                                        </div>
+                                        <div class="price-value">700 ₴</div>
+                                    </div>
+                                    <div class="price-row">
+                                        <div>
+                                            <div class="price-name">Вакуумний масаж тіла (RF)</div>
+                                            <div class="price-meta">1 зона / 2 зони</div>
+                                        </div>
+                                        <div class="price-value">400 ₴ / 650 ₴</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Перманентний макіяж -->
+                    <article class="service-card reveal" data-service>
+                        <div class="service-media">
+                            <img src="images/photo_5_2026-02-03_11-45-29.jpg"
+                                 alt="Перманентний макіяж у студії Euphoria">
+                            <div class="service-tag">Перманентний макіяж</div>
+                        </div>
+                        <div class="service-body">
+                            <div class="service-title-row">
+                                <h3 class="service-title">Підкреслення виразності</h3>
+                                <div class="service-duration">120–180 хв</div>
+                            </div>
+                            <p class="service-text">
+                                Мета — підкреслити виразність, а не замінити макіяж. Використання сучасних технік напилення
+                                для природного та довготривалого результату.
+                            </p>
+                            <button type="button" class="service-toggle" data-toggle>
+                                <span class="service-toggle-icon">+</span>
+                                Показати меню з цінами
+                            </button>
+                            <div class="service-prices" data-prices>
+                                <div class="service-prices-inner">
+                                    <div class="price-row">
+                                        <div>
+                                            <div class="price-name">Губи / Брови / Повіки</div>
+                                        </div>
+                                        <div class="price-value">2500 ₴</div>
+                                    </div>
+                                    <div class="price-row">
+                                        <div>
+                                            <div class="price-name">Корекція</div>
+                                        </div>
+                                        <div class="price-value">1200 ₴</div>
+                                    </div>
+                                    <div class="price-row">
+                                        <div>
+                                            <div class="price-name">Видалення (Лазер)</div>
+                                        </div>
+                                        <div class="price-value">500 ₴</div>
+                                    </div>
+                                    <div class="price-row">
+                                        <div>
+                                            <div class="price-name">Видалення (Ремувер)</div>
+                                        </div>
+                                        <div class="price-value">700 ₴</div>
                                     </div>
                                 </div>
                             </div>
@@ -1311,7 +1715,7 @@
                     <!-- Fallback-фото (будуть замінені живими через API) -->
                     <figure class="gallery-item reveal">
                         <img src="images/photo_5_2026-02-03_11-45-29.jpg"
-                             alt="Інтер’єр студії краси Euphoria">
+                             alt="Інтер'єр студії краси Euphoria">
                         <figcaption class="gallery-tag">Interior</figcaption>
                     </figure>
                     <figure class="gallery-item reveal">
@@ -1326,7 +1730,7 @@
                     </figure>
                     <figure class="gallery-item reveal">
                         <img src="images/photo_8_2026-02-03_11-45-29.jpg"
-                             alt="Деталі інтер’єру та декору">
+                             alt="Деталі інтер'єру та декору">
                         <figcaption class="gallery-tag">Atmosphere</figcaption>
                     </figure>
                 </div>
@@ -1415,14 +1819,19 @@
         <span>Euphoria</span> — простір, де про тебе дбають так само, як ти дбаєш про інших.
     </footer>
 
-    <!-- MOBILE FLOATING CTA -->
-    <div class="mobile-cta">
-        <div class="mobile-cta-inner">
-            <button class="btn-primary mobile-cta-btn"
-                    onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})">
-                Подарувати собі час
-            </button>
+    <!-- FLOATING CONTACT BUTTON (Telegram/Viber) -->
+    <div class="floating-contact" id="floatingContact">
+        <div class="floating-contact-menu">
+            <a href="https://t.me/+380507412041" target="_blank" rel="noopener" class="floating-contact-item" aria-label="Telegram">
+                ✉
+            </a>
+            <a href="viber://chat?number=%2B380507412041" class="floating-contact-item" aria-label="Viber">
+                ᛫
+            </a>
         </div>
+        <button class="floating-contact-btn" onclick="document.getElementById('floatingContact').classList.toggle('active')" aria-label="Відкрити меню зв'язку">
+            💬
+        </button>
     </div>
 </div>
 
@@ -1455,7 +1864,7 @@
         });
     });
 
-    // М’яка поява елементів при скролі
+    // М'яка поява елементів при скролі
     var revealEls = document.querySelectorAll('.reveal');
     var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
@@ -1469,6 +1878,68 @@
     revealEls.forEach(function (el) {
         observer.observe(el);
     });
+
+    // Бургер меню
+    var burgerMenu = document.getElementById('burgerMenu');
+    var mobileNav = document.getElementById('mobileNav');
+    
+    if (burgerMenu && mobileNav) {
+        burgerMenu.addEventListener('click', function() {
+            burgerMenu.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        });
+    }
+    
+    function closeMobileMenu() {
+        if (burgerMenu && mobileNav) {
+            burgerMenu.classList.remove('active');
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+    
+    // Закривати меню при кліку поза ним
+    document.addEventListener('click', function(e) {
+        if (mobileNav && mobileNav.classList.contains('active')) {
+            if (!mobileNav.contains(e.target) && !burgerMenu.contains(e.target)) {
+                closeMobileMenu();
+            }
+        }
+    });
+
+    // Паралакс-ефект для hero-фото
+    (function initParallax() {
+        var heroMedia = document.querySelector('.hero-media-shell.parallax');
+        if (!heroMedia) return;
+
+        var mediaFallback = heroMedia.querySelector('.hero-media-fallback');
+        if (!mediaFallback) return;
+
+        function updateParallax() {
+            var rect = heroMedia.getBoundingClientRect();
+            var windowHeight = window.innerHeight;
+            var elementCenter = rect.top + rect.height / 2;
+            var viewportCenter = windowHeight / 2;
+            var offset = (elementCenter - viewportCenter) * 0.15; // коефіцієнт паралаксу
+
+            mediaFallback.style.setProperty('--parallax-offset', offset + 'px');
+        }
+
+        var ticking = false;
+        function onScroll() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    updateParallax();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        updateParallax(); // початкове значення
+    })();
 
     // ===== Google My Business (Google Business Profile) Live Gallery =====
     (function setupGmbGallery() {
